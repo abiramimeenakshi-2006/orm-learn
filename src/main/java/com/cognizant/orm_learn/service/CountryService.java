@@ -19,4 +19,10 @@ public class CountryService {
     public List<Country> getAllCountries() {
         return countryRepository.findAll();
     }
+
+    // New method for Add Country
+    @Transactional
+    public void addCountry(Country country) {
+        countryRepository.save(country);
+    }
 }
