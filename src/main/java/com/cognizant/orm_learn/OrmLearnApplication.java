@@ -28,11 +28,14 @@ public class OrmLearnApplication {
 
         LOGGER.info("Inside main");
 
-        testGetAllCountries();
+        // Previous Hands-on
+        // testGetAllCountries();
+        // testAddCountry();
+        // testGetAllCountries();
 
-        testAddCountry();
-
-        testGetAllCountries();
+        // Current Hands-on
+        testGetCountry();
+        testSearchCountries();
     }
 
     private static void testGetAllCountries() {
@@ -58,6 +61,28 @@ public class OrmLearnApplication {
         countryService.addCountry(country);
 
         LOGGER.debug("Country Added Successfully");
+
+        LOGGER.info("End");
+    }
+
+    private static void testGetCountry() {
+
+        LOGGER.info("Start");
+
+        Country country = countryService.getCountry("IN");
+
+        LOGGER.debug("Country: {}", country);
+
+        LOGGER.info("End");
+    }
+
+    private static void testSearchCountries() {
+
+        LOGGER.info("Start");
+
+        List<Country> countries = countryService.searchCountries("a");
+
+        LOGGER.debug("Countries: {}", countries);
 
         LOGGER.info("End");
     }

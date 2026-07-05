@@ -25,4 +25,13 @@ public class CountryService {
     public void addCountry(Country country) {
         countryRepository.save(country);
     }
+    @Transactional(readOnly = true)
+public Country getCountry(String code) {
+    return countryRepository.findByCode(code).orElse(null);
+}
+
+@Transactional(readOnly = true)
+public List<Country> searchCountries(String text) {
+    return countryRepository.findByNameContaining(text);
+}
 }
